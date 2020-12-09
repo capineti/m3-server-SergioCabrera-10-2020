@@ -10,6 +10,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const authRouter = require('./routes/auth.router');
+const hoverboardRouter=require('./routes/hoverboard.router');
 
 
 // MONGOOSE CONNECTION
@@ -60,7 +61,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ROUTER MIDDLEWARE
 app.use('/auth', authRouter);
-
+app.use('api', hoverboardRouter);
 
 
 // ERROR HANDLING
