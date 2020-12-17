@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const stockSchema = new Schema({
   model: {type: String, require: true, unique: true},
   name: {type: String, require: true, unique: true},
-  hoverboard:{type: Schema.Types.ObjectId, ref: 'Hoverboard'}
+  hoverboard:{type: Schema.Types.ObjectId, ref: 'Hoverboard'},
+  number:{type:Number}
 
 });
 

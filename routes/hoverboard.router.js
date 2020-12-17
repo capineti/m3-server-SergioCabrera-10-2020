@@ -8,9 +8,9 @@ const Stock= require('./../models/stock.model');
 
 // POST '/api/hoverboards'
 router.post('/hoverboards', (req, res, next) => {
-  const { model, name , state, location} = req.body;
+  const { model, name , state, battery, location} = req.body;
 
-  Hoverboard.create({ model, name, state, location })
+  Hoverboard.create({ model, name, state, battery, location })
     .then((createdHoverboard)=> {
       res
         .status(201) // Created
@@ -68,7 +68,7 @@ router.put('/hoverboards/:id', (req, res, next)=>{
     return;
   }
 
-  Project.findByIdAndUpdate(id, { model, name, state, location })
+  Hoverboard.findByIdAndUpdate(id, { model, name, state, location })
     .then(() => {
       res.status(200).send();
     })
